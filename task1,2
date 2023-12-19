@@ -1,0 +1,75 @@
+Task 1
+#include <stdio.h>
+#include<stdlib.h>
+int main() {
+	int size;
+	printf("vvedit rozmir masyvu : ");
+	scanf_s("%d", &size);
+	int* Myarray = (int*)malloc(size * sizeof(int));
+	if (Myarray == NULL) {
+		printf("Memory allocation error");
+		return 1;
+	}
+	for (size_t i = 0; i < size; i++)
+	{
+		printf("%d Element ", i + 1);
+		scanf_s("%d", &Myarray[i]);
+	}
+	int min = Myarray[0];
+	int arraymin =0;
+	for (size_t i = 0; i < size; i++)
+	{
+		if (Myarray[i] < min) {
+			min = Myarray[i];
+			arraymin = i;
+		}
+	}
+	printf("Min value : %d\n", min);
+	int max = Myarray[0];
+	int arraymax = 0;
+	for (size_t i = 0; i < size; i++)
+	{
+
+		if (Myarray[i] > max) {
+			max = Myarray[i];
+			arraymax = i;
+		}
+	}
+	int pos = arraymax - arraymin;
+	printf("\nMax value : %d\n", max);
+	printf("\nVidstan mizh elementamy : %d", pos);
+	free(Myarray);
+	return 0;
+}
+Task 2
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main() {
+	int size;
+	printf("vvedit rozmir masyvu : ");
+	scanf_s("%d", &size);
+	int* Myarray = (int*)malloc(size * sizeof(int));
+	if (Myarray == NULL) {
+		printf("Memory allocation error");
+		return 1;
+	}
+	for (size_t i = 0; i < size; i++)
+	{
+		printf("%d Element ", i + 1);
+		scanf_s("%d", &Myarray[i]);
+	}
+	printf("____________\n");
+	int *ptrArr = Myarray;
+	int sum= 0;
+	for (size_t i = 0; i < size; i++)
+	{
+		sum = sum + *ptrArr;
+		ptrArr++;
+	}
+	float res = sum / size;
+	printf("Average value : %f\n", res);
+free(Myarray);
+	return 0;
+}
